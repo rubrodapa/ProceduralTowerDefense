@@ -1,6 +1,7 @@
 package gameObjects 
 {
 	import flash.geom.Vector3D;
+	import GameObjectComponents.BehaviourComponents.EvadeTowers;
 	import GameObjectComponents.BehaviourComponents.SeekPedestal;
 	import GameObjectComponents.Explosion;
 	import GameObjectComponents.LifeComponent;
@@ -23,6 +24,7 @@ package gameObjects
 			addComponent(new BoundingShapeRenderer(0xff00ff));
 			addComponent(new Mover(new Vector3D(), 0, 0));
 			addComponent(new SeekPedestal());
+			addComponent(new EvadeTowers());
 			addComponent(new Explosion(true, 0xff00ff));
 			addComponent(new LifeComponent(1, false));
 			addComponent(new PickUpSpawn());

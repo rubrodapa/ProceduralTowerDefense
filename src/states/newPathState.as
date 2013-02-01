@@ -53,6 +53,9 @@ package states
 							this.stateMachine.popState();
 							stateMachine.addState(new SecondState());
 							break;
+						case 4:
+							this.stateMachine.popState();
+							stateMachine.addState(new FourthState());
 					}
 				}
 			}

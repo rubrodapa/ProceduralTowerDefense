@@ -1,8 +1,6 @@
 package states 
 {
 	import Components.EnemySpawner;
-	import flash.geom.Vector3D;
-	import gameObjects.MegaEnemy;
 	import gameObjects.Pedestal;
 	import nl.jorisdormans.phantom2D.ai.statemachines.State;
 	import nl.jorisdormans.phantom2D.objects.GameObject;
@@ -13,7 +11,7 @@ package states
 	 * ...
 	 * @author RubenRodriguez
 	 */
-	public class ThirdState extends State 
+	public class FourthState extends State 
 	{
 		
 		private var pedestal:GameObject;
@@ -25,9 +23,9 @@ package states
 		private var enemySpawnerLeft:EnemySpawner;
 		private var enemySpawnerRight:EnemySpawner;
 		
-		public function ThirdState() 
+		public function FourthState() 
 		{
-			timeToChangeState = 20;
+			timeToChangeState = 60;
 			sfxr = new SfxrSynth();
 			sfxr.params.setSettingsString("0,,0.3813,,0.3892,0.2918,,0.4599,,,,,,0.156,,0.6574,,,1,,,,,0.86");
 			sfxr.cacheSound();
@@ -41,7 +39,7 @@ package states
 			pedestal = objectLayer.getObjectByClass(Pedestal);
 			previousPedestalLife = pedestal.getProperty("life") as Number;
 			
-			objectLayer.addComponent(enemySpawnerLeft = new EnemySpawner( -10, 300, 0.7));
+			objectLayer.addComponent(enemySpawnerLeft = new EnemySpawner( -10, 300, 2));
 			objectLayer.addComponent(enemySpawnerRight = new EnemySpawner(840, 300,2));
 		}
 		
@@ -58,23 +56,19 @@ package states
 			
 			var life:Number = pedestal.getProperty("life") as Number;
 			if (previousPedestalLife != life) {
-				timeToChangeState = 20;
+				timeToChangeState = 60;
 				previousPedestalLife = life;
 			}
 			
 			if (timeToChangeState <= 0) {
 				sfxr.play();
 				stateMachine.popState();
-				objectLayer.addGameObjectSorted(new MegaEnemy(35, false, new Vector3D(100, 0)), new Vector3D(-40, 140));
-				objectLayer.addGameObjectSorted(new MegaEnemy(35, false, new Vector3D(100, 0)), new Vector3D(-40, 460));
-				objectLayer.addGameObjectSorted(new MegaEnemy(35, false, new Vector3D(0, 100)), new Vector3D( 227, -60));
-				objectLayer.addGameObjectSorted(new MegaEnemy(35, false, new Vector3D(0, 100)), new Vector3D( 627, -60));
-				objectLayer.addGameObjectSorted(new MegaEnemy(35), new Vector3D(430, 660));
-				stateMachine.addState(new newPathState(35, 430, -60, 4));
+				//stateMachine.addState();
 			}
 			
 			super.update(elapsedTime);
 		}
+		
 	}
 
 }

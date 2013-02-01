@@ -13,7 +13,7 @@ package GameObjectComponents.BehaviourComponents
 	{
 		
 		private var enemy:GameObject;
-		private var maxVelocity:Number = 60;
+		private var maxVelocity:Number = 65;
 		
 		public function EnemyPursuit(enemy:GameObject) 
 		{
@@ -33,18 +33,27 @@ package GameObjectComponents.BehaviourComponents
 			
 			if(enemy){
 				
-				var enemyPosition:Vector3D = enemy.position;
+				var temp:Vector3D = new Vector3D();
+				
+				if(enemy.mover){
+					temp = enemy.mover.velocity.clone();
+					temp.scaleBy(0.2);
+				}	
+				
+				var enemyPosition:Vector3D = enemy.position.add(temp);
 				
 				var desiredVelocity:Vector3D = enemyPosition.subtract(gameObject.position);
 				desiredVelocity.normalize();
 				desiredVelocity.scaleBy(maxVelocity);
 				var finalVelocity:Vector3D = gameObject.mover.velocity.add(desiredVelocity);
 				
-				if (finalVelocity.length > 120) {
-					finalVelocity.scaleBy(120 / finalVelocity.length);
+				if (finalVelocity.length > 130) {
+					finalVelocity.scaleBy(130 / finalVelocity.length);
 				}
 				
 				gameObject.mover.velocity = finalVelocity;
+			}else {
+				gameObject.destroyed = true;
 			}
 		}
 		

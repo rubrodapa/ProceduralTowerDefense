@@ -1,14 +1,13 @@
 package  
 {
 	import flash.geom.Vector3D;
-	import Components.EnemySpawner;
-	import gameObjects.MegaEnemy;
-	import gameObjects.Player;
-	import gameObjects.Walls;
+	import gameObjects.BasicTower;
 	import gameObjects.InternalWall;
+	import gameObjects.MegaEnemy;
 	import gameObjects.Path;
 	import gameObjects.Pedestal;
-	import gameObjects.BasicTower;
+	import gameObjects.Player;
+	import gameObjects.Walls;
 	import nl.jorisdormans.phantom2D.ai.statemachines.StateMachine;
 	import nl.jorisdormans.phantom2D.cameras.CameraEase;
 	import nl.jorisdormans.phantom2D.cameras.FollowObject;
@@ -99,6 +98,12 @@ package
 			
 			addComponent(new StateMachine(new TutorialState()));
 			
+			/*tiledObjectLayer.addGameObjectSorted(new MegaEnemy(35, false, new Vector3D(100, 0)), new Vector3D(-40, 140));
+			tiledObjectLayer.addGameObjectSorted(new MegaEnemy(35, false, new Vector3D(100, 0)), new Vector3D(-40, 460));
+			tiledObjectLayer.addGameObjectSorted(new MegaEnemy(35, false, new Vector3D(0, 100)), new Vector3D( 227, -60));
+			tiledObjectLayer.addGameObjectSorted(new MegaEnemy(35, false, new Vector3D(0, 100)), new Vector3D( 627, -60));
+			tiledObjectLayer.addGameObjectSorted(new MegaEnemy(35), new Vector3D(430, 660));
+			*/
 			camera.addComponent(new FollowObject(player));
 			camera.addComponent(new CameraEase());
 			camera.addComponent(new RestrictToLayer(tiledObjectLayer));
