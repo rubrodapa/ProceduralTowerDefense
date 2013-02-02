@@ -21,7 +21,9 @@ package GameObjectComponents
 			
 			switch(message) {
 				case "damage":
-					gameObject.objectLayer.addGameObjectSorted(new SuperDamage(), gameObject.position);
+					if(gameObject.getProperty("life")>0){
+						gameObject.objectLayer.addGameObjectSorted(new SuperDamage(), gameObject.position);
+					}
 					return Phantom.MESSAGE_HANDLED;
 			}
 			

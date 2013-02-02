@@ -5,25 +5,19 @@ package states
 	import nl.jorisdormans.phantom2D.ai.statemachines.State;
 	import nl.jorisdormans.phantom2D.objects.GameObject;
 	import nl.jorisdormans.phantom2D.objects.TiledObjectLayer;
-	import nl.jorisdormans.phantom2D.thirdparty.sfxr.SfxrSynth;
 	
 	/**
 	 * ...
 	 * @author RubenRodriguez
 	 */
-	public class FourthState extends State 
+	public class SixState extends State 
 	{
-		
 		private var pedestal:GameObject;
 		private var objectLayer:TiledObjectLayer;
 		private var previousPedestalLife:Number;
 		private var timeToChangeState:Number;
 		
-		
-		private var enemySpawnerLeft:EnemySpawner;
-		private var enemySpawnerRight:EnemySpawner;
-		
-		public function FourthState() 
+		public function SixState() 
 		{
 			timeToChangeState = 40;
 		}
@@ -36,18 +30,9 @@ package states
 			pedestal = objectLayer.getObjectByClass(Pedestal);
 			previousPedestalLife = pedestal.getProperty("life") as Number;
 			
-			objectLayer.addComponent(enemySpawnerLeft = new EnemySpawner( -10, 300, 2));
-			objectLayer.addComponent(enemySpawnerRight = new EnemySpawner(840, 300, 2));
+			objectLayer.addComponent(new EnemySpawner( 200, -10, 2));
+			objectLayer.addComponent(new EnemySpawner( 600, 610, 2));
 			
-			objectLayer.addComponent(new EnemySpawner(400, -10, 2));
-			
-		}
-		
-		override public function onRemove():void 
-		{
-			//objectLayer.removeComponent(enemySpawnerLeft);
-			//objectLayer.removeComponent(enemySpawnerRight);
-			super.onRemove();
 		}
 		
 		override public function update(elapsedTime:Number):void 
@@ -63,7 +48,7 @@ package states
 			if (timeToChangeState <= 0) {
 				stateMachine.parent.handleMessage("changeState");
 				stateMachine.popState();
-				stateMachine.addState(new fiveState());
+				stateMachine.addState(new SevenState());
 			}
 			
 			super.update(elapsedTime);

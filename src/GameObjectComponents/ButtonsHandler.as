@@ -28,7 +28,7 @@ package GameObjectComponents
 				gameObject.handleMessage("reload");
 			}
 			
-			if (!previousState.key1 && currentState.key1) {
+			if (!previousState.key2 && currentState.key2) {
 				gameObject.handleMessage("buildTower");
 			}
 		}

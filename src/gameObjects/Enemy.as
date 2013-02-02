@@ -4,6 +4,7 @@ package gameObjects
 	import GameObjectComponents.BehaviourComponents.EvadeTowers;
 	import GameObjectComponents.BehaviourComponents.SeekPedestal;
 	import GameObjectComponents.Explosion;
+	import GameObjectComponents.FinalExplosion;
 	import GameObjectComponents.LifeComponent;
 	import GameObjectComponents.PickUpSpawn;
 	import nl.jorisdormans.phantom2D.objects.GameObject;
@@ -28,6 +29,7 @@ package gameObjects
 			addComponent(new Explosion(true, 0xff00ff));
 			addComponent(new LifeComponent(1, false));
 			addComponent(new PickUpSpawn());
+			addComponent(new FinalExplosion());
 		}
 		
 		override public function canCollideWith(other:GameObject):Boolean 

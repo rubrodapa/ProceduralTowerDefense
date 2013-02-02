@@ -4,7 +4,7 @@ package gameObjects
 	import GameObjectComponents.BehaviourComponents.PlayerEvade;
 	import GameObjectComponents.BoundingCircleSmaller;
 	import GameObjectComponents.LifeTime;
-	import nl.jorisdormans.phantom2D.audio.SfxrSound;
+	import refactor.SfxrSound;
 	import nl.jorisdormans.phantom2D.objects.GameObject;
 	import nl.jorisdormans.phantom2D.objects.Mover;
 	import nl.jorisdormans.phantom2D.objects.renderers.BoundingShapeRenderer;

@@ -4,8 +4,9 @@ package  gameObjects
 	import GameObjectComponents.BombsThrower;
 	import GameObjectComponents.ButtonsHandler;
 	import GameObjectComponents.Energy;
+	import GameObjectComponents.FinalExplosion;
 	import GameObjectComponents.TowerBuilder;
-	import nl.jorisdormans.phantom2D.audio.SfxrSound;
+	import refactor.SfxrSound;
 	import nl.jorisdormans.phantom2D.objects.boundaries.CollideWithLayerEdge;
 	import nl.jorisdormans.phantom2D.objects.GameObject;
 	import nl.jorisdormans.phantom2D.objects.misc.ArrowKeyHandler;
@@ -39,6 +40,7 @@ package  gameObjects
 			addComponent(new TowerBuilder());
 			addComponent(new Energy(50, 100));
 			addComponent(new SfxrSound("errorBip", sfxr));
+			addComponent(new FinalExplosion());
 		}
 		
 		override public function canCollideWith(other:GameObject):Boolean 

@@ -16,7 +16,7 @@
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
     <class path="src" />
-    <class path="..\phantom-light-master\src" />
+    <class path="..\..\..\Desktop\FlashDeveloper_Projects\phantom-light-master\src" />
   </classpaths>
   <!-- Build options -->
   <build>

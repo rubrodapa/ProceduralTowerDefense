@@ -20,7 +20,6 @@ package states
 		private var objectLayer:TiledObjectLayer;
 		private var previousPedestalLife:Number;
 		private var timeToChangeState:Number;
-		private var sfxr:SfxrSynth;
 		
 		private var enemySpawnerLeft:EnemySpawner;
 		private var enemySpawnerRight:EnemySpawner;
@@ -28,9 +27,6 @@ package states
 		public function ThirdState() 
 		{
 			timeToChangeState = 20;
-			sfxr = new SfxrSynth();
-			sfxr.params.setSettingsString("0,,0.3813,,0.3892,0.2918,,0.4599,,,,,,0.156,,0.6574,,,1,,,,,0.86");
-			sfxr.cacheSound();
 		}
 		
 		override public function onActivate():void 
@@ -63,7 +59,7 @@ package states
 			}
 			
 			if (timeToChangeState <= 0) {
-				sfxr.play();
+				stateMachine.parent.handleMessage("changeState");
 				stateMachine.popState();
 				objectLayer.addGameObjectSorted(new MegaEnemy(35, false, new Vector3D(100, 0)), new Vector3D(-40, 140));
 				objectLayer.addGameObjectSorted(new MegaEnemy(35, false, new Vector3D(100, 0)), new Vector3D(-40, 460));

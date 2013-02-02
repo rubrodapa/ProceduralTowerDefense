@@ -1,5 +1,6 @@
 package GameObjectComponents 
 {
+	import gameObjects.Pedestal;
 	import nl.jorisdormans.phantom2D.core.Phantom;
 	import nl.jorisdormans.phantom2D.objects.GameObjectComponent;
 	import nl.jorisdormans.phantom2D.objects.renderers.BoundingShapeRenderer;
@@ -73,6 +74,9 @@ package GameObjectComponents
 			
 			if (life <= 0) {
 				gameObject.handleMessage("explode");
+				if (gameObject is Pedestal) {
+					gameObject.objectLayer.parent.handleMessage("gameOver");
+				}
 			}
 			
 		}

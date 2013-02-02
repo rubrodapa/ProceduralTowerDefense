@@ -6,23 +6,20 @@ package GameObjectComponents
 	import nl.jorisdormans.phantom2D.particles.Particle;
 	import nl.jorisdormans.phantom2D.particles.ParticleLayer;
 	import nl.jorisdormans.phantom2D.thirdparty.sfxr.SfxrSynth;
-	import refactor.colorParticle;
 	
 	/**
 	 * ...
 	 * @author RubenRodriguez
 	 */
-	public class Explosion extends GameObjectComponent 
+	public class FinalExplosion extends GameObjectComponent 
 	{
 		
 		public var destroy:Boolean;
 		public var color:Number;
 		private var sfx:SfxrSynth;
 		
-		public function Explosion(destroy:Boolean = true,color:Number = 0xffffff) 
+		public function FinalExplosion() 
 		{
-			this.destroy = destroy;
-			this.color = color;
 			sfx = new SfxrSynth();
 			sfx.params.setSettingsString("3,,0.3148,0.7322,0.0431,0.0761,,0.0682,,,,0.3077,0.7654,,,,,,1,,,,,0.5");
 			sfx.cacheSound();
@@ -32,10 +29,9 @@ package GameObjectComponents
 		{
 			switch(message) {
 			
-				case "explode":
+				case "finalExplosion":
 					explode();
-					if (destroy) gameObject.destroyed = true;
-					return Phantom.MESSAGE_HANDLED;
+					gameObject.destroyed = true;
 				break;
 				default:
 				
@@ -58,7 +54,7 @@ package GameObjectComponents
 			while (angle < Math.PI * 2) {
 				angle += Math.random() * 0.15 + 0.15;
 				
-				var particle:Particle = new colorParticle(color);
+				var particle:Particle = new Particle();
 				
 				var life:Number = 0.5 + (Math.random() - Math.random()) * 0.3;
 				

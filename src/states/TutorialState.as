@@ -19,14 +19,10 @@ package states
 		private var pedestal:GameObject;
 		private var previousPedestalLife:Number;
 		private var timeToChangeState:Number;
-		private var sfxr:SfxrSynth;
 		
 		public function TutorialState() 
 		{
 			timeToChangeState = 20;
-			sfxr = new SfxrSynth();
-			sfxr.params.setSettingsString("0,,0.3813,,0.3892,0.2918,,0.4599,,,,,,0.156,,0.6574,,,1,,,,,0.86");
-			sfxr.cacheSound();
 		}
 		
 		override public function onActivate():void 
@@ -37,7 +33,7 @@ package states
 			pedestal = objectLayer.getObjectByClass(Pedestal);
 			previousPedestalLife = pedestal.getProperty("life") as Number;
 			
-			objectLayer.addComponent(enemySpawner = new EnemySpawner(-10, 300,3));
+			objectLayer.addComponent(enemySpawner = new EnemySpawner(-10, 300,2));
 		}
 		
 		override public function onRemove():void 
@@ -57,7 +53,7 @@ package states
 			}
 			
 			if (timeToChangeState <= 0) {
-				sfxr.play();
+				stateMachine.parent.handleMessage("changeState");
 				stateMachine.popState();
 				stateMachine.addState(new FirstState());
 			}

@@ -41,6 +41,7 @@ package GameObjectComponents
 				for each(var go:GameObject in gameObject.objectLayer.getAllObjectsOfClass(Enemy)) {
 					go.handleMessage("explode");
 				}
+				
 				bigger = false;
 			}
 			

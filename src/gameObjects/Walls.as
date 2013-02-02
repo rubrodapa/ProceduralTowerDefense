@@ -2,6 +2,7 @@ package gameObjects
 {
 	import flash.geom.Vector3D;
 	import GameObjectComponents.Explosion;
+	import GameObjectComponents.FinalExplosion;
 	import nl.jorisdormans.phantom2D.objects.GameObject;
 	import nl.jorisdormans.phantom2D.objects.renderers.BoundingShapeRenderer;
 	import nl.jorisdormans.phantom2D.objects.shapes.BoundingBoxAA;
