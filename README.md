@@ -6,11 +6,11 @@ The game use the **Phantom Game Engine** done by JorisDormans, you can find it [
 
 Controls:
 
- - Use the 'Arrow Keys' to move the player.
- - Use the 'Space' to throw a bomb
- - Use the 'Right Control' to build a tower.
+ - Use the `Arrow Keys` to move the player.
+ - Use the `Space` to throw a bomb
+ - Use the `Right Control` to build a tower.
 
- - Just for testing, 'Enter' fills a quarter of energy.
+ - Just for testing, `Enter` fills a quarter of energy.
 
 Mechanics of the game:
 
